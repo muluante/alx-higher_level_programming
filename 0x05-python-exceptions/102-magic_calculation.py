@@ -14,7 +14,7 @@ def magic_calculation(a, b):
 
             else:
 
-                result += (a ** b) / i
+                result += a ** b / i
 
         except:
 
