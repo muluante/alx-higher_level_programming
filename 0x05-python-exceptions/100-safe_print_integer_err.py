@@ -1,40 +1,17 @@
 #!/usr/bin/python3
 
-
-
-
-import sys
-
-
-
-
-
 def safe_print_integer_err(value):
 
-
-    If a ValueError message is caught, a corresponding
-
-    message is printed to standard error.
-
-    Args:
-
-        value (int): The integer to print.
-
-    Returns:
-
-        If a TypeError or ValueError occurs - False.
-
-        Otherwise - True.
-
+    import sys
 
     try:
 
         print("{:d}".format(value))
 
-        return (True)
+        return True
 
-    except (TypeError, ValueError):
+    except (ValueError, TypeError) as err:
 
-        print("Exception: {}".format(sys.exc_info()[1]), file=sys.stderr)
+        sys.stderr.write("Exception: %s\n" % err)
 
-        return (Fals)
+        return False
