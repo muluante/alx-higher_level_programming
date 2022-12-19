@@ -18,7 +18,7 @@ def magic_calculation(a, b):
 
         except:
 
-            result = a + b
+            result = b + a
 
             break
 
