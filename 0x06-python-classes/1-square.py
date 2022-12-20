@@ -1,16 +1,16 @@
 #!/usr/bin/python3
-Square = __import__('1-square').Square
+"""Square module.
+This module contains a class that defines a square
+"""
 
-my_square = Square(3)
-print(type(my_square))
-print(my_square.__dict__)
 
-try:
-    print(my_square.size)
-except Exception as e:
-    print(e)
+class Square():
+    """Defines a square."""
 
-try:
-    print(my_square.__size)
-except Exception as e:
-    print(e)
+    def __init__(self, size):
+        """Sets the necessary attributes for the Square object.
+
+        Args:
+            size (int): the size of one edge of the square.
+        """
+        self.__size = size
