@@ -42,6 +42,7 @@ class Node():
 
 class SinglyLinkedList():
     """Defines a singly linked list"""
+
     def __init__(self):
         """Sets the necessary attributes for the SinglyLinkedList object."""
         self.__head = None
@@ -50,6 +51,7 @@ class SinglyLinkedList():
         """Sets the print behavior of the SinglyLinkedList object."""
         sll_str = ""
         node = self.__head
+
         if node is not None:
             while node is not None:
                 sll_str += str(node.data) + '\n'
@@ -59,6 +61,7 @@ class SinglyLinkedList():
 
     def sorted_insert(self, value):
         node = self.__head
+
         if node is None or self.__head.data >= value:
             self.__head = Node(value, self.__head)
         else:
