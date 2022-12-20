@@ -40,6 +40,7 @@ class Node():
         else:
             raise TypeError("next_node must be a Node object")
 
+
 class SinglyLinkedList():
     """Defines a singly linked list"""
     def __init__(self):
