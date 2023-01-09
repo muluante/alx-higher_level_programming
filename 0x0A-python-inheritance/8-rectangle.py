@@ -1,17 +1,24 @@
 #!/usr/bin/python3
+"""
+Geometry module
+"""
+
+
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
-"""superclass BaseGeometry"""
 
 
 class Rectangle(BaseGeometry):
-    """creates a subclass Rectangle of class BaseGeometry"""
+    """
+    A class inheriting from the BaseGeometry class
+    Private instance attributes:
+        -width
+        -height
+    """
     def __init__(self, width, height):
-        """initialize attributes
-        Args:
-            width(int): width of Rectangle
-            height(int): height of Rectangle
+        """
+        Class constructor with private attributes
         """
         self.integer_validator("width", width)
         self.integer_validator("height", height)
         self.__width = width
-        self.__height = height
+        self.__height = heightn
