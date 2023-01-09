@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Geometry module
+Creates a Rectangle class.
 """
 
 
@@ -8,17 +8,21 @@ BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
-    """
-    A class inheriting from the BaseGeometry class
+    """Represents a rectangle.
     Private instance attributes:
-        -width
-        -height
+        - width
+        - height
+    Inherits from BaseGeometry.
     """
+
     def __init__(self, width, height):
+        """Initializes an instance.
+        Args:
+            - width: width of the rectangle
+            - heigth: height of the rectangle
         """
-        Class constructor with private attributes
-        """
+
         self.integer_validator("width", width)
         self.integer_validator("height", height)
         self.__width = width
-        self.__height = heightn
+        self.__height = height
