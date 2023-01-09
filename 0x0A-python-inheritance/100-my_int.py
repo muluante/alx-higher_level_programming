@@ -1,10 +1,19 @@
 #!/usr/bin/python3
+"""
+Rebel class
+"""
+
+
 class MyInt(int):
-    """creates a class MyInt"""
+    """
+    Class inheriting from int,
+    but reversing the behavior of != and ==
+    """
+
     def __eq__(self, other):
-        """invert == to !="""
-        return False
+        """Equality becomes inequality"""
+        return super().__ne__(other)
 
     def __ne__(self, other):
-        """invert != to =="""
-        return True
+        """Inequality becomes equality"""
+        return super().__eq__(other)
