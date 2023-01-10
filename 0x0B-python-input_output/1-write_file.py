@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 """
-Append to a file
+Write to a file
 """
 
 
-def append_write(filename="", text=""):
+def write_file(filename="", text=""):
     """
-    Appends a string at the end of a text file and returns
-    the number of characters added
+    Writes a string to a text file and returns the number of characters written
     """
-    with open(filename, mode="a+") as file:
+    with open(filename, mode="w+") as file:
         return file.write(text)
