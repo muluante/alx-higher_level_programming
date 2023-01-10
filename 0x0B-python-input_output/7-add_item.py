@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""
+"""Add an item
 Adds all arguments to a Python list,
 and then save them to a file.
 """
