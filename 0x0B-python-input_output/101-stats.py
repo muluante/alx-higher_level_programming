@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-"""
-Stats 
-"""
 import sys
 
 
