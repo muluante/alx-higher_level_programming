@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 """
-Convert to JSON string
+Append to a file
 """
-import json
 
 
-def to_json_string(my_obj):
+def append_write(filename="", text=""):
     """
-    Returns the JSON representation of an object
+    Appends a string at the end of a text file and returns
+    the number of characters added
     """
-    return json.dumps(my_obj)
+    with open(filename, mode="a+") as file:
+        return file.write(text)
