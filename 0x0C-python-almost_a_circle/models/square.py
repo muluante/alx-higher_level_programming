@@ -1,93 +1,61 @@
 #!/usr/bin/python3
-"""Module square.
-Create a Square class, inheriting from Rectangle.
+"""This is the Square module.
+Contains the Square class that inherits from Rectangle.
 """
-
-from models.base import Base
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """Class describing a square.
-    Public instance methods:
-        - area()
-        - display()
-        - to_dictionary()
-        - update()
-    Inherits from Rectangle.
-    """
+    """This class inherits from Rectangle and defines a Square object."""
 
     def __init__(self, size, x=0, y=0, id=None):
-        """Initializes a Square instance.
+        """Initializes the default attributes of the Base object.
         Args:
-            - __size: size
-            - __x: position
-            - __y: position
-            - id: id
+            size (int): the size of a square side.
+            x (int): the wanted horizontal (x) padding of the square.
+            y (int): the wanted vertical (y) padding of the square.
+            id (int): the wanted identifier of the Base object.
         """
-
-        self.size = size
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
-        """Returns a string representation of a Square instance."""
+        """Overrides the default behaviour of the __str__ method."""
+        return "[Square] ({}) {}/{} - {}".format(
+            self.id, self.x, self.y, self.width)
 
-        s = "[Square] ({}) {}/{} - {}".format(
-            self.id, self.x, self.y, self.__width)
-        return s
-
+    # size attribute getter and setter.
     @property
     def size(self):
-        """Retrieves the size attribute."""
-
-        return self.__width
+        """Get and Set the size attribute of the Square."""
+        return self.width
 
     @size.setter
     def size(self, value):
-        """Sets the size attribute."""
+        self.width = value
+        self.height = value
 
-        if type(value) is not int:
-            raise TypeError("width must be an integer")
-        if value <= 0:
-            raise ValueError("width must be > 0")
-        self.__width = value
-        self.__height = value
-
+    # Methods
     def update(self, *args, **kwargs):
-        """Updates attributes of an instance.
+        """Updates the Square attributes.
         Args:
-            - id attribute
-            - size attribute
-            - x attribute
-            - y attribute
+            args (list): attributes to be modified [id, size, x, y].
+            kwargs (dict): attributes to be modified.
         """
-
-        if args is not None and len(args) != 0:
-            if len(args) >= 1:
-                if type(args[0]) != int and args[0] is not None:
-                    raise TypeError("id must be an integer")
-                self.id = args[0]
-            if len(args) > 1:
-                self.size = args[1]
-            if len(args) > 2:
-                self.x = args[2]
-            if len(args) > 3:
-                self.y = args[3]
+        dct = {}
+        if args is not None and len(args) > 0:
+            keys = ['id', 'size', 'x', 'y']
+            for i in range(len(args) if len(args) <= 4 else 4):
+                dct[keys[i]] = args[i]
         else:
-            for key, value in kwargs.items():
-                if key == "id":
-                    if type(value) != int and value is not None:
-                        raise TypeError("id must be an integer")
-                    self.id = value
-                if key == "size":
-                    self.size = value
-                if key == "x":
-                    self.x = value
-                if key == "y":
-                    self.y = value
+            dct = kwargs
+
+        if len(dct) > 0:
+            for key, value in dct.items():
+                if key == 'id' and value is None:
+                    self.__init__(self.size, self.x, self.y)
+                else:
+                    setattr(self, key, value)
 
     def to_dictionary(self):
-        """Returns the dictionary representation of a Square."""
-
-        my_dict = {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
-        return my_dict
+        """Returns the dictionary representation of a Square"""
+        return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
